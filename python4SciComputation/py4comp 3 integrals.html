@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>ListsStringsTuplesSetDic_Problem Solving with Algorithms and Data Structures using Python</title>
+<title>py4comp 3 integrals</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,8 +13116,23 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Python is a modern, easy-to-learn, object-oriented programming language. It
-has a powerful set of built-in data types and easy-to-use control consturcts.</p>
+<h2 id="3.-Computing-integrals">3. Computing integrals<a class="anchor-link" href="#3.-Computing-integrals">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="a.-the-composite-trapezoidal-method-&#22797;&#21512;&#26799;&#24418;&#27861;">a. the composite trapezoidal method &#22797;&#21512;&#26799;&#24418;&#27861;<a class="anchor-link" href="#a.-the-composite-trapezoidal-method-&#22797;&#21512;&#26799;&#24418;&#27861;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>we want the corresponding Python function
+trapezoid to take any f, a, b, and n as input and return the approximation
+to the integral.</p>
 
 </div>
 </div>
@@ -13127,143 +13142,61 @@ has a powerful set of built-in data types and easy-to-use control consturcts.</p
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The assignment statement changes the reference being held by the variable</span>
-
-<span class="n">theSum</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">theSum</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">theSum</span><span class="p">))</span>
-<span class="n">theSum</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">theSum</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">theSum</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">trapezoidal</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">*=</span> <span class="n">h</span>
+    
+    <span class="k">return</span> <span class="n">result</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0
-&lt;class &#39;int&#39;&gt;
-True
-&lt;class &#39;bool&#39;&gt;
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Lists">Lists<a class="anchor-link" href="#Lists">&#182;</a></h4><h6 id="Lists,-strings,-and-tuples-are-ordered-collestions;-Sets-and-dictionaries-are-unordered-collections">Lists, strings, and tuples are ordered collestions; Sets and dictionaries are unordered collections<a class="anchor-link" href="#Lists,-strings,-and-tuples-are-ordered-collestions;-Sets-and-dictionaries-are-unordered-collections">&#182;</a></h6>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Method  Name                    Use Explanation
-append  alist.append(item)      Adds a new item to the end of a list
-insert  alist.insert(i,item)    Inserts an item at the ith position in a list
-pop     alist.pop()             Removes and returns the last item in a list
-pop     alist.pop(i)            Removes and returns the ith item in a list
-sort    alist.sort()            Modifies a list to be sorted
-reverse alist.reverse()         Modifies a list to be in reverse order
-del     del alist[i]            Deletes the item in the ith position
-index   alist.index(item)       Returns the index of the first occurrence of item
-count   alist.count(item)       Returns the number of occurrences of item
-remove  alist.remove(item)      Removes the first occurrence of item</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Operation Name        Operator      Explanation
-indexing                [ ]         Access an element of a sequence
-concatenation           +           Combine sequences together
-repetition              *           Concatenate a repeated number of times
-membership              in          Ask whether an item is in a sequence
-length                  len         Ask the number of items in the sequence
-slicing                 [ : ]       Extract a part of a sequence</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="n">myList</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># mylist shows up in three times</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">myList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="mi">45</span> <span class="c1"># a change in one element of myList, changes all in A</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">application</span><span class="p">():</span>   
+    <span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">exp</span>
+
+    <span class="n">v</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">400</span>
+    <span class="n">numerical</span> <span class="o">=</span> <span class="n">trapezoidal</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numerical</span><span class="p">)</span>
+
+    <span class="n">V</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">exp</span><span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">exact</span> <span class="o">=</span> <span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="n">V</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">exact</span> <span class="o">-</span> <span class="n">numerical</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n = </span><span class="si">%d</span><span class="s1">: </span><span class="si">%.16f</span><span class="s1">, error: </span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">numerical</span><span class="p">,</span> <span class="n">error</span><span class="p">))</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
-[[1, 2, 45, 4], [1, 2, 45, 4], [1, 2, 45, 4]]
-</pre>
 </div>
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="making-a-module">making a module<a class="anchor-link" href="#making-a-module">&#182;</a></h3><p>put everything inside functions and let function calls in the main
+program be in the so-called test block:</p>
 
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">]</span>
-<span class="n">myList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
-<span class="n">myList</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mf">4.5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span> <span class="c1"># pop will default to the end of the list</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># pop can also remove and return a specific item</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
-<span class="n">myList</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
-<span class="n">myList</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
-<span class="n">myList</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mf">6.5</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mf">4.5</span><span class="p">))</span>
-<span class="n">myList</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mf">6.5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
-<span class="k">del</span> <span class="n">myList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">application</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13280,19 +13213,8 @@ slicing                 [ : ]       Extract a part of a sequence</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[1024, 3, True, 6.5, False]
-[1024, 3, 4.5, True, 6.5, False]
-False
-[1024, 3, 4.5, True, 6.5]
-3
-[1024, 4.5, True, 6.5]
-[1024, 4.5, 6.5]
-[4.5, 6.5, 1024]
-[1024, 6.5, 4.5]
-1
-2
-[1024, 4.5]
-[4.5]
+<pre>1.7183030649495579
+n = 400: 1.7183030649495579, error: -2.12365e-05
 </pre>
 </div>
 </div>
@@ -13304,7 +13226,26 @@ False
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h6 id="one-common-Python-function-that-is-often-discussed-in-conjunction-with-lists-is-the-range-function">one common Python function that is often discussed in conjunction with lists is the range function<a class="anchor-link" href="#one-common-Python-function-that-is-often-discussed-in-conjunction-with-lists-is-the-range-function">&#182;</a></h6>
+<p>(1) implementing a general mathematical algorithm in a general function requires somewhat more abstract thinking, but the resulting code can be used over and over again.</p>
+<p>(2) Another advantage of packaging mathematical algorithms in functions is that a function can be reused by anyone to solve a problem by just calling the function with a proper set of arguments.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="b.-the-composite-midpoint-method-&#22797;&#21512;&#20013;&#28857;&#27861;">b. the composite midpoint method &#22797;&#21512;&#20013;&#28857;&#27861;<a class="anchor-link" href="#b.-the-composite-midpoint-method-&#22797;&#21512;&#20013;&#28857;&#27861;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This sum may be written more compactly as:
+$$\int_a^b f(x) \, dx \approx h * \sum\limits_{i=0}^{n-1} f(x_i)$$
+where $x_i = (a + \frac{h}{2}) +ih$</p>
+
 </div>
 </div>
 </div>
@@ -13313,525 +13254,30 @@ False
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">midpoint</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">f</span><span class="p">((</span><span class="n">a</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">*=</span> <span class="n">h</span>
+    
+    <span class="k">return</span> <span class="n">result</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>range(0, 10)
-[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-range(5, 10)
-[5, 6, 7, 8, 9]
-[5, 7, 9]
-[10, 9, 8, 7, 6, 5, 4, 3, 2]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h6 id="Strings">Strings<a class="anchor-link" href="#Strings">&#182;</a></h6>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h6 id="Strings-are-sequential-collections-of-zero-or-more-letters,-numbers-and-other-symbols.-We-call-these-letters,numbers-and-other-symbols-characters.">Strings are sequential collections of zero or more letters, numbers and other symbols. We call these letters,numbers and other symbols characters.<a class="anchor-link" href="#Strings-are-sequential-collections-of-zero-or-more-letters,-numbers-and-other-symbols.-We-call-these-letters,numbers-and-other-symbols-characters.">&#182;</a></h6>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Method Name      Use        Explanation
-center    astring.center(w)     Returns a string centered in a field of size w
-count     astring.count(item)   Returns the number of occurrences of item in the string
-ljust     astring.ljust(w)      Returns a string left-justified in a field of size w
-lower     astring.lower()       Returns a string in all lowercase
-rjust     astring.rjust(w)      Returns a string right-justified in a field of size w
-find      astring.find(item)    Returns the index of the first occurrence of item
-split     astring.split(schar)  Splits a string into substrings at schar</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">myName</span> <span class="o">=</span> <span class="s2">&quot;David&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myName</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myName</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myName</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myName</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">))</span>
-<span class="c1"># split will be very useful for processing data. Split will take a string and </span>
-<span class="c1"># return a list of strings using the split character as a division point.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myName</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myName</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>David
-DAVID
-  David   
-2
-[&#39;Da&#39;, &#39;id&#39;]
-[&#39;David&#39;]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h6 id="A-major-difference-between-lists-and-strings-is-that-lists-can-be-modified-while-strings-cannot.-This-is-referred-to-as-mutability.---Lists-are-mutable;-strings-are-immutable">A major difference between lists and strings is that lists can be modified while strings cannot. This is referred to as mutability.   Lists are mutable; strings are immutable<a class="anchor-link" href="#A-major-difference-between-lists-and-strings-is-that-lists-can-be-modified-while-strings-cannot.-This-is-referred-to-as-mutability.---Lists-are-mutable;-strings-are-immutable">&#182;</a></h6>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">myName</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span><span class="s1">&#39;X&#39;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-6-77ac6cc657d3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>myName<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">]</span> <span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#39;X&#39;</span>
-
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: &#39;str&#39; object does not support item assignment</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h6 id="Tuples">Tuples<a class="anchor-link" href="#Tuples">&#182;</a></h6>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h6 id="Tuples-are-very-similar-to-lists-in-that-they-are-heterogenenous-sequences-of-data.-The-difference-is-that-a-tuple-is-immutable,-like-a-string.-A-tuple-cannot-be-changed.-Tuples-are-written-as-comma-delimited-values-enclosed-in-parentheses.">Tuples are very similar to lists in that they are heterogenenous sequences of data. The difference is that a tuple is immutable, like a string. A tuple cannot be changed. Tuples are written as comma-delimited values enclosed in parentheses.<a class="anchor-link" href="#Tuples-are-very-similar-to-lists-in-that-they-are-heterogenenous-sequences-of-data.-The-difference-is-that-a-tuple-is-immutable,-like-a-string.-A-tuple-cannot-be-changed.-Tuples-are-written-as-comma-delimited-values-enclosed-in-parentheses.">&#182;</a></h6>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">myTuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mf">4.96</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myTuple</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">myTuple</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myTuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myTuple</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myTuple</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(2, True, 4.96)
-3
-2
-(2, True, 4.96, 2, True, 4.96, 2, True, 4.96)
-(2, True)
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">myTuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-8-e37974c169f6&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>myTuple<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">]</span> <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-green-intense-fg ansi-bold">False</span>
-
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: &#39;tuple&#39; object does not support item assignment</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h6 id="Set">Set<a class="anchor-link" href="#Set">&#182;</a></h6>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h6 id="A-set-is-an-unordered-collection-of-zero-or-more-immutable-Python-data-objects.-Sets-do-not-allow-duplicates-and-are-written-as-comma-delimited-values-enclosed-in-curly-braces.-The-empty-set-is-represented-by-set().-Sets-are-heterogeneous">A set is an unordered collection of zero or more immutable Python data objects. Sets do not allow duplicates and are written as comma-delimited values enclosed in curly braces. The empty set is represented by set(). Sets are heterogeneous<a class="anchor-link" href="#A-set-is-an-unordered-collection-of-zero-or-more-immutable-Python-data-objects.-Sets-do-not-allow-duplicates-and-are-written-as-comma-delimited-values-enclosed-in-curly-braces.-The-empty-set-is-represented-by-set().-Sets-are-heterogeneous">&#182;</a></h6>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Operation Name        Operator        Explanation
-membership            in              Set membership
-length                len             Returns the cardinality of the set
-|                  aset | otherset    Returns a new set with all elements from both sets
-&amp;                  aset &amp; otherset    Returns a new set with only those elements common to both sets</p>
-<ul>
-<li>aset - otherset    Returns a new set with all items from the first set not in second
-&lt;=                 aset &lt;= otherset   Asks whether all elements of the first set are in the second</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mySet</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;Cat&#39;</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="kc">False</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mySet</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mySet</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">in</span> <span class="n">mySet</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span> <span class="ow">in</span> <span class="n">mySet</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;Cat&#39;, False, 3, 4.5, 6}
-5
-True
-False
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Sets support a number of methods that should be familiar to those who have worked with them in a mathematics setting</p>
-<p>Method         Name                         Use Explanation
-union          aset.union(otherset)         Returns a new set with all elements from both sets
-intersection   aset.intersection(otherset)  Returns a new set with only those elements common to both sets
-difference     aset.difference(otherset)    Returns a new set with all items from first set not in second
-issubset       aset.issubset(otherset)      Asks whether all elements of one set are in the other
-add            aset.add(item)               Adds item to the set
-remove         aset.remove(item)            Removes item from the set
-pop            aset.pop()                   Removes an arbitrary element from the set
-clear          aset.clear()                 Removes all elements from the set</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mySet</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;Cat&#39;</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="kc">False</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mySet</span><span class="p">)</span>
-<span class="n">yourSet</span> <span class="o">=</span>  <span class="p">{</span><span class="mi">99</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">yourSet</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">mySet</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">yourSet</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mySet</span> <span class="o">|</span> <span class="n">yourSet</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">mySet</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">yourSet</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">mySet</span> <span class="o">&amp;</span> <span class="n">yourSet</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">mySet</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">yourSet</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">mySet</span> <span class="o">-</span> <span class="n">yourSet</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">}</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">yourSet</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------&#39;</span><span class="p">)</span>
-
-<span class="n">mySet</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;house&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mySet</span><span class="p">)</span>
-<span class="n">mySet</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mf">4.5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mySet</span><span class="p">)</span>
-<span class="n">mySet</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mySet</span><span class="p">)</span>
-<span class="n">mySet</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mySet</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;Cat&#39;, False, 3, 4.5, 6}
-{3, 99, 100}
-{False, 3, 4.5, 99, 6, 100, &#39;Cat&#39;}
-{False, 3, 4.5, 99, 6, 100, &#39;Cat&#39;}
-{3}
-{3}
-{&#39;Cat&#39;, False, 4.5, 6}
-{&#39;Cat&#39;, False, 4.5, 6}
-True
----------
-{False, 3, 4.5, 6, &#39;house&#39;, &#39;Cat&#39;}
-{False, 3, 6, &#39;house&#39;, &#39;Cat&#39;}
-{3, 6, &#39;house&#39;, &#39;Cat&#39;}
-set()
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h6 id="Dictionary">Dictionary<a class="anchor-link" href="#Dictionary">&#182;</a></h6>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Dictionaries are collections of associated pairs of items where each pair consists of a key and a value. This key-value pair is typically written as key:value. Dictionaries are written as comma-delimited key:value pairs enclosed in curly braces.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">capitals</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Iowa&#39;</span><span class="p">:</span><span class="s1">&#39;DesMoines&#39;</span><span class="p">,</span><span class="s1">&#39;Wisconsin&#39;</span><span class="p">:</span><span class="s1">&#39;Madison&#39;</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">capitals</span><span class="p">[</span><span class="s1">&#39;Iowa&#39;</span><span class="p">])</span>
-<span class="n">capitals</span><span class="p">[</span><span class="s1">&#39;Utah&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;SaltLakeCity&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">capitals</span><span class="p">)</span>
-<span class="n">capitals</span><span class="p">[</span><span class="s1">&#39;California&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;Sacramento&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">capitals</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">capitals</span><span class="p">:</span>
-   <span class="nb">print</span><span class="p">(</span><span class="n">capitals</span><span class="p">[</span><span class="n">k</span><span class="p">],</span><span class="s2">&quot; is the capital of &quot;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DesMoines
-{&#39;Utah&#39;: &#39;SaltLakeCity&#39;, &#39;Wisconsin&#39;: &#39;Madison&#39;, &#39;Iowa&#39;: &#39;DesMoines&#39;}
-4
-SaltLakeCity  is the capital of  Utah
-Madison  is the capital of  Wisconsin
-Sacramento  is the capital of  California
-DesMoines  is the capital of  Iowa
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Operator    Use             Explanation
-[]        myDict[k]         Returns the value associated with k, otherwise its an error 
-in        key in adict      Returns True if key is in the dictionary, False otherwise
-del       del adict[key]    Removes the entry from the dictionary</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Method          Name                Use Explanation
-keys            adict.keys()        Returns the keys of the dictionary in a dict_keys object
-values          adict.values()      Returns the values of the dictionary in a dict_values object
-items           adict.items()       Returns the key-value pairs in a dict_items object
-get             adict.get(k)        Returns the value associated with k, None otherwise
-get             adict.get(k,alt)    Returns the value associated with k, alt otherwise</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">phoneext</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;david&#39;</span><span class="p">:</span><span class="mi">1410</span><span class="p">,</span><span class="s1">&#39;brad&#39;</span><span class="p">:</span><span class="mi">1137</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">phoneext</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">phoneext</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">phoneext</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">phoneext</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">phoneext</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">phoneext</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">phoneext</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;kent&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">phoneext</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;kent&quot;</span><span class="p">,</span><span class="s2">&quot;NO ENTRY&quot;</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;david&#39;: 1410, &#39;brad&#39;: 1137}
-dict_keys([&#39;david&#39;, &#39;brad&#39;])
-dict_values([1410, 1137])
-[1410, 1137]
-dict_items([(&#39;david&#39;, 1410), (&#39;brad&#39;, 1137)])
-[(&#39;david&#39;, 1410), (&#39;brad&#39;, 1137)]
-None
-NO ENTRY
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
